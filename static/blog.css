@@ -1,0 +1,42 @@
+.bigbrand{
+  font-size: 2em;
+  color: red;
+  margin-right: 50px;
+}
+
+.positioning{
+  position: absolute;
+  right:40px;
+  font-size: 1.5rem
+}
+
+.side{
+  display:inline-block;
+  margin-left: 10px;
+}
+
+.login_heading{
+  text-align: center;
+  margin: 40px;
+  color:red;
+}
+.small_brand{
+  color: red;
+}
+
+.photo{
+  position: absolute;
+  right:40px;
+  width: 90px;
+  height: 90px;
+  border-radius: 0%
+}
+
+.centerstage{
+  margin-bottom: 60px;
+}
+
+.commentadjust{
+  position: absolute;
+  right: 40px;
+}
