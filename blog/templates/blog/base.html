@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %} {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/styletwos.css' %}">
+    <script src="{% static 'js/jquery.js' %}" charset="utf-8"></script>
+    <script src="{% static 'js/mini.js' %}" charset="utf-8"></script>
+    <script src="{% static 'js/popper.js' %}" charset="utf-8"></script>
+    <link rel="stylesheet" href="{% static 'blog.css' %}">
+  </head>
+
+
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+  <a class="navbar-brand" href="{% url 'blog:post_list' %}"><h3 class="bigbrand">HommiesBlog</h3></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'blog:about' %}"><h4 class="small_brand">About Us </h4></a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href='https://www.github.com/monsaw'><h4 class="small_brand">Github </h4></a>
+      </li>
+      <span class="positioning">
+
+      {% if user.is_authenticated %}
+
+      <li class="nav-item side">
+        <a class="nav-link" href="{% url 'blog:post_new' %}"> <h4 class="small_brand">Add Post</h4> </a>
+      </li>
+
+      <li class="nav-item side">
+        <a class="nav-link" href="{% url 'blog:post_draft' %}"><h4 class="small_brand">Draft</h4></a>
+      </li>
+
+      <li class="nav-item side">
+        <a class="nav-link" href="{% url 'logout' %}"><h4 class="small_brand">Logout</h4></a>
+      </li>
+
+    <small class=small_brand>Welcome {{user.username|title}}</small>
+
+      {% else %}
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'login' %}"><h4 class="small_brand">Login</h4> </a>
+      </li>
+      {% endif %}
+    </span>
+    </ul>
+
+  </div>
+</nav>
+
+
+    <div class="container">
+      {% block body_block %}
+
+      {% endblock %}
+    </div>
+  </body>
+</html>

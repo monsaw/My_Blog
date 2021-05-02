@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+  {% block title %} Comment_Page {% endblock %}
+{% block body_block %}
+
+<h1>New Post</h1>
+<form  method="POST">
+  {% csrf_token %}
+  {{form.media}}
+  {{form.as_p}}
+  <input type="submit" class="btn btn-primary" value="Comment">
+</form>
+{% endblock %}
